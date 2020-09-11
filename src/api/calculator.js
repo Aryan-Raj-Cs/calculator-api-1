@@ -31,7 +31,7 @@ if(isNaN(num1)||isNaN(num2)){
     })  
 }
 
-else if(num1>1000000||num2>1000000){
+else if(num1+num2>1000000){
    return res.json({
         status:"error",
         message:"Overflow",
@@ -58,13 +58,7 @@ router.post('/sub',checkType,(req,res)=>{
         })  
     }
     
-    else if(num1>1000000||num2>1000000){
-        return   res.json({
-            status:"error",
-            message:"Overflow",
-           
-        })   
-    }
+    
 
     else if (num1 - num2 < -1000000) {
 		return res.json({
@@ -92,7 +86,7 @@ router.post('/sub',checkType,(req,res)=>{
             })  
         }
         
-        else if(num1>1000000||num2>1000000){
+        else if(num1*num2>1000000){
             return   res.json({
                 status:"error",
                 message:"Overflow",
@@ -119,7 +113,7 @@ router.post('/sub',checkType,(req,res)=>{
                 })  
             }
             
-            else if(num1>1000000||num2>1000000){
+            else if(num1/num2>1000000){
                 return  res.json({
                     status:"error",
                     message:"Overflow",
