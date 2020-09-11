@@ -102,42 +102,66 @@ router.post('/sub',checkType,(req,res)=>{
         
         })
 
-        router.post('/divide',checkType,(req,res)=>{
-            const num1=parseFloat(req.body.num1);
-            const num2=parseFloat(req.body.num2);
-            if(isNaN(num1)||isNaN(num2)){
-                return  res.json({
-                    status:"error",
-                    message:"Invalid data types",
+        // router.post('/divide',checkType,(req,res)=>{
+        //     const num1=parseFloat(req.body.num1);
+        //     const num2=parseFloat(req.body.num2);
+        //     if(isNaN(num1)||isNaN(num2)){
+        //         return  res.json({
+        //             status:"error",
+        //             message:"Invalid data types",
                     
-                })  
-            }
+        //         })  
+        //     }
             
             
-            else if(num2==0){
-                return  res.json({
-                    status:"error",
-                    message: "Cannot divide by zero"
+        //     else if(num2==0){
+        //         return  res.json({
+        //             status:"error",
+        //             message: "Cannot divide by zero"
                    
-                })  
-            }
-            else if(num1/num2>1000000){
-                return  res.json({
-                    status:"error",
-                    message:"Overflow",
+        //         })  
+        //     }
+        //     else if(num1/num2>1000000){
+        //         return  res.json({
+        //             status:"error",
+        //             message:"Overflow",
                    
-                })   
-            }
-            else
-            return  res.json({
-                status:"success",
-                message:"The division of given numbers",
-                result:num1/num2
-            })
+        //         })   
+        //     }
+        //     else
+        //     return  res.json({
+        //         status:"success",
+        //         message:"The division of given numbers",
+        //         result:num1/num2
+        //     })
             
-            })
+        //     })
         
-    
+        router.post('/divide',checkType,(req, res) => {
+            const { num1, num2 } = req.body;
+        
+            if (num2 === 0) {
+                return res.json({
+                    status: `error`,
+                    message: `Cannot divide by zero`,
+                });
+            }
+            const result = num1 / num2;
+        
+            if (result > 1000000) {
+                return res.json({
+                    status: `error`,
+                    message: `Overflow`,
+                });
+            }
+        
+            return res.json({
+                status: `success`,
+                message: `The division of given numbers`,
+                result,
+            });
+        
+        });
 
 
 
