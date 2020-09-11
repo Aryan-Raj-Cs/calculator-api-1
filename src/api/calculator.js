@@ -102,7 +102,7 @@ router.post('/sub',checkType,(req,res)=>{
         
         })
 
-        router.post('/division',checkType,(req,res)=>{
+        router.post('/divide',checkType,(req,res)=>{
             const num1=parseFloat(req.body.num1);
             const num2=parseFloat(req.body.num2);
             if(isNaN(num1)||isNaN(num2)){
