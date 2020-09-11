@@ -113,19 +113,20 @@ router.post('/sub',checkType,(req,res)=>{
                 })  
             }
             
-            else if(num1/num2>1000000){
-                return  res.json({
-                    status:"error",
-                    message:"Overflow",
-                   
-                })   
-            }
+            
             else if(num2==0){
                 return  res.json({
                     status:"error",
                     message: "Cannot divide by zero"
                    
                 })  
+            }
+            else if(num1/num2>1000000){
+                return  res.json({
+                    status:"error",
+                    message:"Overflow",
+                   
+                })   
             }
             else
             return  res.json({
