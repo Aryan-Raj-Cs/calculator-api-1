@@ -8,12 +8,12 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 
-app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
-// your code goes here
 
-// here
+ app.use(require("./api/calculator"))
+
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
